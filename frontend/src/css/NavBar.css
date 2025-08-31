@@ -1,4 +1,10 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s;
   background-color: #000000;
   padding: 1rem 2rem;
   display: flex;
@@ -12,6 +18,16 @@
   font-weight: bold;
 }
 
+.navbar.scrolled {
+  background: #000;
+}
+
+.navbar-brand a {
+  color: #fff;
+  font-family: 'Montserrat', 'Roboto', 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+
 .navbar-links {
   display: flex;
   gap: 2rem;
@@ -22,6 +38,33 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.2s;
+}
+
+.navbar-links .nav-link {
+  color: #ccc;
+  position: relative;
+  font-family: 'Montserrat', 'Roboto', 'Poppins', sans-serif;
+  transition: color 0.2s;
+}
+
+.navbar-links .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-links .nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #e50914;
+  transition: width 0.2s;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+
+.navbar-links .nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-link:hover {
@@ -45,3 +88,4 @@
     padding: 0.5rem;
   }
 }
+
